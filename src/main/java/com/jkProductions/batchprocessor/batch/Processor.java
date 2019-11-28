@@ -25,7 +25,10 @@ public class Processor implements ItemProcessor<User, User> {
     @Override
     public User process(User user) throws Exception{
         //get DEPT code and transform it to respective name
-        user.setDept(DEPT_NAMES.get(user.getDept()));
+        String deptCode = user.getDept();
+        String deptName = DEPT_NAMES.get(deptCode);
+        user.setDept(deptName);
+        System.out.println(String.format("Converted from [%s] to [%s]",deptCode,deptName));
         return user;
     }
 }
