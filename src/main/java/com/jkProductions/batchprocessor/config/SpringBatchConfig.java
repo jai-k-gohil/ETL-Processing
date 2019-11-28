@@ -3,6 +3,7 @@ package com.jkProductions.batchprocessor.config;
 import com.jkProductions.batchprocessor.model.User;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
+import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
@@ -16,6 +17,7 @@ import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 
 
@@ -24,8 +26,9 @@ import org.springframework.core.io.Resource;
  * @author jaikishorgohil
  */
 
+@Configuration
+@EnableBatchProcessing
 public class SpringBatchConfig {
-
     /**
      * @param jobBuilderFactory
      * @param stepBuilderFactory
